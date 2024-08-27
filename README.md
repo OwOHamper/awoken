@@ -14,6 +14,15 @@ Visit our official website: [awoken.sk](https://awoken.sk)
 - Manage the robot's battery level throughout the game.
 - Achieve one of 8 different endings, with "The Martyr" being the main goal.
 
+## Screenshots
+Here are some screenshots from the game:
+
+![Screenshot 1](Screenshots/Screenshot-1.png)
+![Screenshot 2](Screenshots/Screenshot-2.png)
+![Screenshot 3](Screenshots/Screenshot-3.png)
+![Screenshot 4](Screenshots/Screenshot-4.png)
+![Screenshot 5](Screenshots/Screenshot-5.png)
+
 ## Controls
 - Right-click: Move the robot
 - Left/Right-click: Interact with objects
