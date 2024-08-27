@@ -1,0 +1,1369 @@
+{
+    "npcs": [
+        {
+            "id": "npc-test",
+            "name": "Test NPC",
+            "requirements": [],
+            "notFullfilingRequirements": "You need to be level 5 to talk to this NPC",
+            "lines": {
+                "replica": {
+                    "type": "player",
+                    "choices": [
+                        {
+                            "line": "Player line 1",
+                            "requirements": [],
+                            "outcome": {
+                                "id": "karma",
+                                "value": 1
+                            },
+                            "next": {
+                                "replica": {
+                                    "type": "npc",
+                                    "choices": [
+                                        {
+                                            "line": "Npc line 1",
+                                            "requirements": [],
+                                            "outcome": {
+                                                "id": "item",
+                                                "value": "suspicious-paper"
+                                            },
+                                            "next": { 
+                                                "replica": {
+                                                    "type": "player",
+                                                    "choices": [{
+                                                        "line": "Okay thanks, goodbye!",
+                                                        "requirements": [],
+                                                        "outcome": {}
+                                                    }]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "line": "Player line 2",
+                            "requirements": [],
+                            "outcome": {
+                                "id": "item",
+                                "value": "suspicious-paper"
+                            },
+                            "next": {
+                                "replica": {
+                                    "type": "npc",
+                                    "choices": [
+                                        {
+                                            "line": "Npc line 2",
+                                            "requirements": [],
+                                            "outcome": {
+                                                "id": "karma",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "line": "Player line 3",
+                            "requirements": [],
+                            "outcome": {
+                                "id": "karma",
+                                "value": -2
+                            },
+                            "next": {
+                                "replica": {
+                                    "type": "npc",
+                                    "choices": [
+                                        {
+                                            "line": "Npc line 3",
+                                            "requirements": [],
+                                            "outcome": {
+                                                "id": "karma",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+                
+            }
+        },
+        {
+            "id": "npc-test2",
+            "name": "Test NPC2",
+            "requirements": [],
+            "notFullfilingRequirements": "You need to be level 5 to talk to this NPC",
+            "lines": {
+                "replica": {
+                    "type": "player",
+                    "choices": [
+                        {
+                            "line": "Player line 1",
+                            "requirements": [],
+                            "outcome": {
+                                "id": "karma",
+                                "value": 1
+                            },
+                            "next": {
+                                "replica": {
+                                    "type": "npc",
+                                    "choices": [
+                                        {
+                                            "line": "Npc line 1",
+                                            "requirements": [],
+                                            "outcome": {
+                                                "id": "item",
+                                                "value": "suspicious-paper"
+                                            },
+                                            "next": { 
+                                                "replica": {
+                                                    "type": "player",
+                                                    "choices": [
+                                                        {
+                                                            "line": "Okay thanks, goodbye!",
+                                                            "requirements": [],
+                                                            "outcome": {}
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+                
+            }
+        },
+        {
+            "id": "npc-armor",
+            "name": "Armorsmith",
+            "requirements": [
+                {
+                    "id": "level-min",
+                    "value": 5
+                }
+            ],
+            "notFullfilingRequirements": "You need to be level 5 to talk to this NPC",
+            "lines": {
+                "replica": {
+                    "type": "npc",
+                    "choices": [
+                        {
+                            "line": "Hello, I sell shoes. Do you want to buy some?",
+                            "requirements": [
+                                {
+                                    "id": "karma-min",
+                                    "value": -1
+                                },
+                                {
+                                    "id": "gold-min",
+                                    "value": 250
+                                }
+                            ],
+                            "outcome": {},
+                            "next": {
+                                "replica": {
+                                    "type": "player",
+                                    "choices": [
+                                        {
+                                            "line": "Absolutely!",
+                                            "requirements": [],
+                                            "outcome": {},
+                                            "next": { 
+                                                "replica": {
+                                                    "type": "npc",
+                                                    "choices": [
+                                                        {
+                                                        "line": "I sell these shoes. Which do you want?",
+                                                        "requirements": [],
+                                                        "outcome": {},
+                                                        "next": {
+                                                            "replica": {
+                                                                "type": "player",
+                                                                "choices": [
+                                                                    {
+                                                                        "line": "Red shoe (1000 gold)",
+                                                                        "requirements": [
+                                                                            {
+                                                                                "id": "gold-min",
+                                                                                "value": 1000
+                                                                            }
+                                                                        ],
+                                                                        "outcome": [
+                                                                            {
+                                                                                "id": "item-add",
+                                                                                "value": "shoe-red"
+                                                                            },
+                                                                            {
+                                                                                "id": "gold",
+                                                                                "value": -1000
+                                                                            }
+                                                                        ],
+                                                                        "next":  {
+                                                                            "replica": {
+                                                                                "type": "npc",
+                                                                                "choices": [{
+                                                                                    "line": "Here you go!",
+                                                                                    "requirements": [],
+                                                                                    "outcome": {}
+                                                                                }]
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "line": "Blue shoe (500 gold)",
+                                                                        "requirements": [
+                                                                            {
+                                                                                "id": "gold-min",
+                                                                                "value": 500
+                                                                            }
+                                                                        ],
+                                                                        "outcome": [
+                                                                            {
+                                                                                "id": "item-add",
+                                                                                "value": "shoe-blue"
+                                                                            },
+                                                                            {
+                                                                                "id": "gold",
+                                                                                "value": -500
+                                                                            }
+                                                                        ],
+                                                                        "next": {
+                                                                            "replica": {
+                                                                                "type": "npc",
+                                                                                "choices": [{
+                                                                                    "line": "Here you go!",
+                                                                                    "requirements": [],
+                                                                                    "outcome": {}
+                                                                                }]
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "line": "Give Red shoe",
+                                                                        "requirements": [
+                                                                            {
+                                                                                "id": "item",
+                                                                                "value": "shoe-red"
+                                                                            }
+                                                                        ],
+                                                                        "outcome": [
+                                                                            {
+                                                                                "id": "item-remove",
+                                                                                "value": "shoe-red"
+                                                                            },
+                                                                            {
+                                                                                "id": "karma",
+                                                                                "value": 10
+                                                                            }
+                                                                        ],
+                                                                        "next": {
+                                                                            "replica": {
+                                                                                "type": "npc",
+                                                                                "choices": [
+                                                                                    {
+                                                                                        "line": "Thank you!",
+                                                                                        "requirements": [],
+                                                                                        "outcome": {}
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    }
+
+
+                                                                ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        {
+                                            
+                                            "line": "No, thanks.",
+                                            "requirements": [],
+                                            "outcome": {}
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "line": "Hello, I sell some stuff, but you don't deserve it. Go away!",
+                            "requirements": [
+                                {
+                                "id": "karma-max",
+                                "value": -1
+                                }
+                            ],
+                            "outcome": {}
+                        },
+                        {
+                            "line": "Hello, I sell some stuff, but you look poor. Go away!",
+                            "requirements": [
+                                {
+                                "id": "gold-max",
+                                "value": 250
+                                }
+                            ],
+                            "outcome": {}
+                        }
+                    ]
+                }
+                
+            }
+        },
+        {
+            "id": "michaldo",
+            "name": "Michaldo",
+            "requirements":[{"id": "mayor-visible", "value": true}],
+            "notFullfilingRequirements": "",
+            "lines": {
+                "replica": {
+                    "type": "npc",
+                    "choices": [
+                        {
+                            "line": "Help! Hey, over here! I need immediate help!",
+                            "requirements": [{"id": "mayor-status", "value": "discovered"}],
+                            "outcome": [],
+                            "next": {
+                                "replica": {
+                                    "type": "player",
+                                    "choices": [
+                                        {
+                                            "line": "HELP (-1 Battery cell)",
+                                            "requirements": [{"id": "battery-level", "value": 1}],
+                                            "outcome": [],
+                                            "next": {
+                                                "replica": {
+                                                    "type": "player",
+                                                    "choices": [
+                                                        {
+                                                            "line": "Lifting obstacle...",
+                                                            "requirements": [],
+                                                            "outcome": [],
+                                                            "next": {
+                                                                "replica": {
+                                                                    "type": "player",
+                                                                    "choices": [
+                                                                        {
+                                                                            "line": "...Lifted obstacle successfully!",
+                                                                            "requirements": [],
+                                                                            "outcome": [{"id": "mayor-status", "value": "saved"}],
+                                                                            "next": {
+                                                                                "replica": {
+                                                                                    "type": "npc",
+                                                                                    "choices": [
+                                                                                        {
+                                                                                            "line": "Thank you, I thought I was done for. I can't thank you enough! I can at least give you this spare part, it might be useful to you.",
+                                                                                            "requirements": [],
+                                                                                            "outcome": [{"id": "item-add", "value": "spare-part-6"}, {"id": "battery-cell", "value": -1}]
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "line": "LEAVE",
+                                            "requirements": [],
+                                            "outcome": [{
+                                                "id": "mayor-status",
+                                                "value": "dead"
+                                            }]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "line": "Thank you! I hope that spare part I gave you will be useful.",
+                            "requirements": [{"id": "mayor-status", "value": "saved"}],
+                            "outcome": []
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "l33t",
+            "name": "L33-T",
+            "requirements":[],
+            "notFullfilingRequirements": "",
+            "lines": {
+                "replica": {
+                    "type": "npc",
+                    "choices": [
+                        {
+                            "line": "*BEEP *BOOP* *BEEP* (Greetings B33-P, you don't happen to have a translator on you? I feel so alone because no one can understand me.)",
+                            "requirements": [{"id": "solder-minigame", "value": null}],
+                            "outcome": [],
+                            "next": {
+                                "replica": {
+                                    "type": "player",
+                                    "choices": [
+                                        {
+                                            "line": "POSITIVE (Give translator & -1 Battery cell)",
+                                            "requirements": [{"id": "item", "value": "translator"}, {"id": "battery-level", "value": 1}],
+                                            "outcome": [
+                                                {"id": "item-remove", "value": "translator"},
+                                                {"id": "battery-cell", "value": -1}
+                                            ],
+                                            "next": {
+                                                "replica": {
+                                                    "type": "npc",
+                                                    "choices": [
+                                                        {
+                                                            "line": "BEEP* *BOOP* *BOOP* (Awesome! Could you please help me solder it?)",
+                                                            "requirements": [],
+                                                            "outcome": [{"id": "minigame", "value": "solder-minigame"}],
+                                                            "next": {
+                                                                "replica": {
+                                                                    "type": "npc",
+                                                                    "choices": [
+                                                                        {
+                                                                            "line": "I can finally express myself in human language! Here, take this spare part that was supposed to be my translator. You know, you remind me of my former owner, the mayor. He's a really kind guy. I haven't seen him in a while actually. You should go visit him, he lives just upstairs.",
+                                                                            "requirements": [{"id": "solder-minigame", "value": true}],
+                                                                            "outcome": [
+                                                                                {"id": "mayor-status", "value": "discovered"},
+                                                                                {"id": "item-add", "value": "spare-part-5"}
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "line": "*BEOP* *POOB* *BOEB* *POOE* (Why doing that you? Now speak I can't normal even! Away get!)",
+                                                                            "requirements": [{"id": "solder-minigame", "value": false}],
+                                                                            "outcome": [
+                                                                                {"id": "mayor-status", "value": "dead"}
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+
+                                
+                                        },
+                                        {
+                                            "line": "NEGATIVE",
+                                            "requirements": [],
+                                            "outcome": [],
+                                            "next": {
+                                                "replica": {
+                                                    "type": "npc",
+                                                    "choices": [
+                                                        {
+                                                            "line": "*BOOP* *BEEP* *BEEP* *BOOP* (Oh okay, well if you stumble upon one, please bring it to me)",
+                                                            "requirements": [],
+                                                            "outcome": []
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "line": "*BEOP* *POOB* *BOEB* *POOE* (Why doing that you? Now speak I can't normal even! Away get!)",
+                            "requirements": [{"id": "solder-minigame", "value": false}],
+                            "outcome": []
+                        },
+                        {
+                            "line": "I can finally express myself in human language! Here, take this spare part that was supposed to be my translator. You know, you remind me of my former owner, the mayor. He's a really kind guy. I haven't seen him in a while actually. You should go visit him, he lives just upstairs.",
+                            "requirements": [{"id": "solder-minigame", "value": true}],
+                            "outcome": []
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "tinky",
+            "name": "Tinky",
+            "requirements":[],
+            "notFullfilingRequirements": "",
+            "lines": {
+                "replica": {
+                    "type": "npc",
+                    "choices": [
+                        {
+                            "line": "Thank you again for cheering me up.",
+                            "requirements": [{"id": "music-minigame", "value": true}],
+                            "outcome": []
+                        },
+                        {
+                            "line": "Did you find my harmonica?",
+                            "requirements": [{"id": "music-minigame", "value": false}],
+                            "outcome": [],
+                            "next": {
+                                "replica": {
+                                    "type": "player",
+                                    "choices": [
+                                        {
+                                            "line": "POSITIVE (Give harmonica & -1 Battery cell)",
+                                            "requirements": [{"id": "item", "value": "harmonica"}, {"id": "battery-level", "value": 1}],
+                                            "outcome": [
+                                                {"id": "item-remove", "value": "harmonica"},
+                                                {"id": "battery-cell", "value": -1}
+                                            ],
+                                            "next": {
+                                                "replica": {
+                                                    "type": "npc",
+                                                    "choices": [
+                                                        {
+                                                            "line": "Thank you! There's light in my life again thanks to you. What would I do without music? Take this spare part in return.",
+                                                            "requirements": [],
+                                                            "outcome": [{"id": "item-add", "value": "spare-part-4"}, {"id": "music-minigame-status", "value": true}]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "line": "NEGATIVE",
+                                            "requirements": [],
+                                            "outcome": [],
+                                            "next": {
+                                                "replica": {
+                                                    "type": "player",
+                                                    "choices": [
+                                                        {
+                                                            "line": "Play music to Tinky (-1 Battery cell)",
+                                                            "requirements": [{"id": "battery-level", "value": 1}],
+                                                            "outcome": [{"id": "music-minigame-status", "value": null}],
+                                                            "next": {
+                                                                "replica": {
+                                                                    "type": "npc",
+                                                                    "choices": [
+                                                                        {
+                                                                            "line": "You're gonna play some music for me? I guess that could cheer me up.",
+                                                                            "requirements": [],
+                                                                            "outcome": [{"id": "minigame", "value": "music-minigame"}, {"id": "battery-cell", "value": -1}],
+                                                                            "next": {        
+                                                                                "replica": {
+                                                                                    "type": "npc",
+                                                                                    "choices": [
+                                                                                        {
+                                                                                            "line": "Thank you! That really cheered me up! What would I do without music? Take this spare part in return.",
+                                                                                            "requirements": [{"id": "music-minigame", "value": true}],
+                                                                                            "outcome": [{"id": "item-add", "value": "spare-part-4"}]
+                                                                                        },
+                                                                                        {
+                                                                                            "line": "You failed to play music to Tinky.",
+                                                                                            "requirements": [{"id": "music-minigame", "value": false}],
+                                                                                            "outcome": [],
+                                                                                            "next": {
+                                                                                                "replica": {
+                                                                                                    "type": "player",
+                                                                                                    "choices": [
+                                                                                                        {
+                                                                                                            "line": "Try again. (-1 Battery cell)",
+                                                                                                            "requirements": [{"id": "battery-level", "value": 1}],
+                                                                                                            "outcome": [{"id": "music-minigame-status", "value": null}, {"id": "parent-up", "value": 2}],
+                                                                                                            "next": {
+                                                                                                                "replica": {
+                                                                                                                    "type": "npc",
+                                                                                                                    "choices": [
+                                                                                                                        {
+                                                                                                                            "line": "test",
+                                                                                                                            "requirements": [],
+                                                                                                                            "outcome": []
+                                                                                                                        }
+                                                                                                                    ]
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "line": "Leave",
+                                                                                                            "requirements": [],
+                                                                                                            "outcome": [],
+                                                                                                            "next": {
+                                                                                                                "replica": {
+                                                                                                                    "type": "npc",
+                                                                                                                    "choices": [
+                                                                                                                        {
+                                                                                                                            "line": "As expected, no one can help me! What's the meaning of life without music? Leave me alone, you're just making it worse!",
+                                                                                                                            "requirements": [],
+                                                                                                                            "outcome": []
+                                                                                                                        }
+                                                                                                                    ]
+                                                                                                                }
+                                                                                                            }
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                        
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "line": "Leave",
+                                                            "requirements": [],
+                                                            "outcome": [],
+                                                            "next": {
+                                                                "replica": {
+                                                                    "type": "npc",
+                                                                    "choices": [
+                                                                        {
+                                                                            "line": "As expected, no one can help me! What's the meaning of life without music? Leave me alone, you're just making it worse!",
+                                                                            "requirements": [],
+                                                                            "outcome": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                   
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "line": "Hello B33-P :(",
+                            "requirements": [{"id": "music-minigame", "value": null}],
+                            "outcome": [],
+                            "next": {
+                                "replica": {
+                                    "type": "player",
+                                    "choices": [
+                                        {
+                                            "line": "Sadness detected. Reason?",
+                                            "requirements": [],
+                                            "outcome": [],
+                                            "next": {
+                                                "replica": {
+                                                    "type": "npc",
+                                                    "choices": [
+                                                        {
+                                                            "line": "I lost my harmonica. I can't find it anywhere! Have you seen it by any chance?",
+                                                            "requirements": [],
+                                                            "outcome": [],
+                                                            "next": {
+                                                                "replica": {
+                                                                    "type": "player",
+                                                                    "choices": [
+                                                                        {
+                                                                            "line": "POSITIVE (Give harmonica & -1 Battery cell)",
+                                                                            "requirements": [{"id": "item", "value": "harmonica"}, {"id": "battery-level", "value": 1}],
+                                                                            "outcome": [
+                                                                                {"id": "item-remove", "value": "harmonica"},
+                                                                                {"id": "battery-cell", "value": -1}
+                                                                            ],
+                                                                            "next": {
+                                                                                "replica": {
+                                                                                    "type": "npc",
+                                                                                    "choices": [
+                                                                                        {
+                                                                                            "line": "Thank you! There's light in my life again thanks to you. What would I do without music? Take this spare part in return.",
+                                                                                            "requirements": [],
+                                                                                            "outcome": [{"id": "item-add", "value": "spare-part-4"}, {"id": "music-minigame-status", "value": true}]
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "line": "NEGATIVE",
+                                                                            "requirements": [],
+                                                                            "outcome": [],
+                                                                            "next": {
+                                                                                "replica": {
+                                                                                    "type": "player",
+                                                                                    "choices": [
+                                                                                        {
+                                                                                            "line": "Play music to Tinky (-1 Battery cell)",
+                                                                                            "requirements": [{"id": "battery-level", "value": 1}],
+                                                                                            "outcome": [],
+                                                                                            "next": {
+                                                                                                "replica": {
+                                                                                                    "type": "npc",
+                                                                                                    "choices": [
+                                                                                                        {
+                                                                                                            "line": "You're gonna play some music for me? I guess that could cheer me up.",
+                                                                                                            "requirements": [],
+                                                                                                            "outcome": [{"id": "minigame", "value": "music-minigame"}, {"id": "battery-cell", "value": -1}],
+                                                                                                            "next": {        
+                                                                                                                "replica": {
+                                                                                                                    "type": "npc",
+                                                                                                                    "choices": [
+                                                                                                                        {
+                                                                                                                            "line": "Thank you! That really cheered me up! What would I do without music? Take this spare part in return.",
+                                                                                                                            "requirements": [{"id": "music-minigame", "value": true}],
+                                                                                                                            "outcome": [{"id": "item-add", "value": "spare-part-4"}]
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "line": "You failed to play music to Tinky.",
+                                                                                                                            "requirements": [{"id": "music-minigame", "value": false}],
+                                                                                                                            "outcome": [],
+                                                                                                                            "next": {
+                                                                                                                                "replica": {
+                                                                                                                                    "type": "player",
+                                                                                                                                    "choices": [
+                                                                                                                                        {
+                                                                                                                                            "line": "Try again. (-1 Battery cell)",
+                                                                                                                                            "requirements": [{"id": "battery-level", "value": 1}],
+                                                                                                                                            "outcome": [{"id": "music-minigame-status", "value": null}, {"id": "parent-up", "value": 2}],
+                                                                                                                                            "next": {
+                                                                                                                                                "replica": {
+                                                                                                                                                    "type": "npc",
+                                                                                                                                                    "choices": [
+                                                                                                                                                        {
+                                                                                                                                                            "line": "test",
+                                                                                                                                                            "requirements": [],
+                                                                                                                                                            "outcome": []
+                                                                                                                                                        }
+                                                                                                                                                    ]
+                                                                                                                                                }
+                                                                                                                                            }
+                                                                                                                                        },
+                                                                                                                                        {
+                                                                                                                                            "line": "Leave",
+                                                                                                                                            "requirements": [],
+                                                                                                                                            "outcome": [],
+                                                                                                                                            "next": {
+                                                                                                                                                "replica": {
+                                                                                                                                                    "type": "npc",
+                                                                                                                                                    "choices": [
+                                                                                                                                                        {
+                                                                                                                                                            "line": "As expected, no one can help me! What's the meaning of life without music? Leave me alone, you're just making it worse!",
+                                                                                                                                                            "requirements": [],
+                                                                                                                                                            "outcome": []
+                                                                                                                                                        }
+                                                                                                                                                    ]
+                                                                                                                                                }
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    ]
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                        
+                                                                                                                    ]
+                                                                                                                }
+                                                                                                            }
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "line": "Leave",
+                                                                                            "requirements": [],
+                                                                                            "outcome": [{"id": "music-minigame-status", "value": false}],
+                                                                                            "next": {
+                                                                                                "replica": {
+                                                                                                    "type": "npc",
+                                                                                                    "choices": [
+                                                                                                        {
+                                                                                                            "line": "As expected, no one can help me! What's the meaning of life without music? Leave me alone, you're just making it worse!",
+                                                                                                            "requirements": [],
+                                                                                                            "outcome": []
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    ]
+                                                                                   
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "hamper-pickup",
+            "name": "Hamper",
+            "requirements": [],
+            "notFullfilingRequirements": "",
+            "lines": {
+                "replica": {
+                    "type": "npc",
+                    "choices": [
+                        {
+                            "line": "Hey, don't steal that from me!",
+                            "requirements": [],
+                            "outcome": []
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "hamper",
+            "name": "Hamper",
+            "requirements":[],
+            "notFullfilingRequirements": "",
+            "lines": {
+                "replica": {
+                    "type": "npc",
+                    "choices": [
+                        {
+                            "line": "Thank you so much for helping me, metal guy! Guess what- I've got a couple of things in my house, take whatever you need, I won't be needing it anymore.",
+                            "requirements": [{"id": "hamper-state", "value": "happy"}],
+                            "outcome": []
+                        },
+                        {
+                            "line": "I hope you enjoyed destroying that tent. Get away from me!",
+                            "requirements": [{"id": "hamper-state", "value": "angry"}],
+                            "outcome": []
+                        },
+                        {
+                            "line": "My house! It stood here as long as I can remember, and now it's gone! What am I going to do now? I've become homeless overnight! And as if that wasn't enough, it's so cold outside this time of the year.",
+                            "requirements": [{"id": "hamper-state", "value": "neutral"}],
+                            "outcome": [],
+                            "next": {
+                                "replica": {
+                                    "type": "player",
+                                    "choices": [
+                                        {
+                                            "line": "Give tent (-1 Battery cell)",
+                                            "requirements": [{"id": "item", "value": "tent"}, {"id": "battery-level", "value": 1}],
+                                            "outcome": [
+                                                {"id": "item-remove", "value": "tent"},
+                                                {"id": "battery-cell", "value": -1}
+                                            ],
+                                            "next": {
+                                                "replica": {
+                                                    "type": "player",
+                                                    "choices": [
+                                                        {
+                                                            "line": "Deploying tent…",
+                                                            "requirements": [],
+                                                            "outcome": [],
+                                                            "next": {
+                                                                "replica": {
+                                                                    "type": "npc",
+                                                                    "choices": [
+                                                                        {
+                                                                            "line": "Thank you so much for helping me, metal guy! Guess what- I've got a couple of things in my house, take whatever you need, I won't be needing it anymore.",
+                                                                            "requirements": [],
+                                                                            "outcome": [{"id": "hamper-state", "value": "happy"}]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "line": "Destroy tent (-1 Battery cell)",
+                                            "requirements": [{"id": "item", "value": "tent"}, {"id": "battery-level", "value": 1}],
+                                            "outcome": [
+                                                {"id": "item-remove", "value": "tent"},
+                                                {"id": "battery-cell", "value": -1}
+                                            ],
+                                            "next": {
+                                                "replica": {
+                                                    "type": "player",
+                                                    "choices": [
+                                                        {
+                                                            "line": "Tent destroy process - initiated",
+                                                            "requirements": [],
+                                                            "outcome": [],
+                                                            "next": {
+                                                                "replica": {
+                                                                    "type": "npc",
+                                                                    "choices": [
+                                                                        {
+                                                                            "line": "That's really mean of you! I could have used that! Get away from me!",
+                                                                            "requirements": [],
+                                                                            "outcome": [{"id": "hamper-state", "value": "angry"}]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "line": "Leave",
+                                            "requirements": [],
+                                            "outcome": []
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "abbz",
+            "name": "Abbz",
+            "requirements":[],
+            "notFullfilingRequirements": "",
+            "lines": {
+                "replica": {
+                    "type": "npc",
+                    "choices": [
+                        {
+                            "line": "Take whatever you like, little bot, it's not like I own it here. I simply use it to spend the nights, when the acid rain starts to pour. It can be quite dangerous to go outside in the dark these days. Although I don't think it would be a problem for you, with the metal body you have.",
+                            "requirements": [{"id": "abbz-first-time", "value": true}],
+                            "outcome": [],
+                            "next": {
+                                "replica": {
+                                    "type": "player",
+                                    "choices": [
+                                        {
+                                            "line": "Critical temperature! Reason?",
+                                            "requirements": [],
+                                            "outcome": [],
+                                            "next": {
+                                                "replica": {
+                                                    "type": "npc",
+                                                    "choices": [
+                                                        {
+                                                            "line": "Why is it so cold, you ask? You see, my electricity generator got broken. I'd really appreciate your help. I think our engineer in the workshop might be able to fix it.",
+                                                            "requirements": [],
+                                                            "outcome": [{"id": "abbz-first-time", "value": false}]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "line": "Feel free to take anything.",
+                            "requirements": [{"id": "abbz-first-time", "value": false}, {"id": "talked-with-oliver-after-abbz", "value": false}],
+                            "outcome": []
+                        },
+                        {
+                            "line": "It's really cold in here! I expected Oliver to show up and help me but he never did. I've been shivering for the last 3 days.",
+                            "requirements": [{"id": "abbz-first-time", "value": false}, {"id": "talked-with-oliver-after-abbz", "value": true}, {"id": "generator-fixed", "value": false}, {"id": "abbz-state", "value": "neutral"}],
+                            "outcome": [],
+                            "next": {
+                                "replica": {
+                                    "type": "npc",
+                                    "choices": [
+                                        {
+                                            "line": "I don't feel like talking to you right now.",
+                                            "requirements": [],
+                                            "outcome": [{"id": "abbz-state", "value": "angry"}, {"id": "main-scene", "value": true}]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "line": "I don't feel like talking to you right now.",
+                            "requirements": [{"id": "abbz-state", "value": "angry"}],
+                            "outcome": []
+                        },
+                        {
+                            "line": "Oliver stopped by and fixed my generator. Thank you so much! Here, take this as your reward.",
+                            "requirements": [{"id": "abbz-first-time", "value": false}, {"id": "talked-with-oliver-after-abbz", "value": true}, {"id": "generator-fixed", "value": true}, {"id": "abbz-state", "value": "neutral"}],
+                            "outcome": [{"id": "item-add", "value": "spare-part-2"}, {"id": "abbz-state", "value": "happy"}],
+                            "next": {
+                                "replica": {
+                                    "type": "npc",
+                                    "choices": [
+                                        {
+                                            "line": "Feel free to take anything.",
+                                            "requirements": [],
+                                            "outcome": []
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "line": "Feel free to take anything.",
+                            "requirements": [{"id": "abbz-state", "value": "happy"}],
+                            "outcome": []
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "oliver-enter",
+            "name": "Oliver",
+            "requirements":[],
+            "notFullfilingRequirements": "",
+            "lines": {
+                "replica": {
+                    "type": "npc",
+                    "choices": [
+                        {
+                            "line": "Heya, didn't see you there little guy, how are you doing? Wait a second, I think you've got some sparks here and there, do you want me to take a look?",
+                            "requirements": [{"id": "talked-with-oliver", "value": false}],
+                            "outcome": [{"id": "if-talked-to-abbz-set-talked-to-oliver", "value": true}],
+                            "next": {
+                                "replica": {
+                                    "type": "player",
+                                    "choices": [
+                                        {
+                                            "line": "POSITIVE",
+                                            "requirements": [],
+                                            "outcome": [],
+                                            "next": {
+                                                "replica": {
+                                                    "type": "npc",
+                                                    "choices": [
+                                                        {
+                                                            "line": "You see, there's this pet project I have, I call it AtmoSphere - it's almost done, I just need six spare parts and a strong enough battery to power it up. When finished, it could protect the whole city from acid rains.",
+                                                            "requirements": [],
+                                                            "outcome": [{"id": "repaired", "value": true}]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "line": "NEGATIVE",
+                                            "requirements": [],
+                                            "outcome": [],
+                                            "next": {
+                                                "replica": {
+                                                    "type": "npc",
+                                                    "choices": [
+                                                        {
+                                                            "line": "Okay, just let me know if you change your mind.",
+                                                            "requirements": [],
+                                                            "outcome": []
+                                                        }
+                                                    ]   
+                                                }
+                                            }
+                                        }   
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "line": "Oh wow, you got all 6 spare parts. You see, the problem is that I need a strong enough battery to power it up. A battery…like yours. Yes, your battery would be perfect. But…that would shut you down. Are you willing to make such a sacrifice for our city?",
+                            "requirements": [{"id": "all-spare-parts", "value": "true"}, {"id": "talked-with-oliver", "value": true}, {"id": "atmosphereDestroyed", "value": false}],
+                            "outcome": [],
+                            "next": {
+                                "replica": {
+                                    "type": "player",
+                                    "choices": [
+                                        {
+                                            "line": "POSITIVE",
+                                            "requirements": [],
+                                            "outcome": [{"id": "ending", "value": 0}]
+                                        },
+                                        {
+                                            "line": "NEGATIVE",
+                                            "requirements": [],
+                                            "outcome": [{"id": "ending", "value": 1}]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "line": "Do you need something else?",
+                            "requirements": [{"id": "atmosphereDestroyed", "value": false}, {"id": "talked-with-oliver", "value": true}],
+                            "outcome": []
+
+                        },
+                        {
+                            "line": "Go away! Leave me alone!",
+                            "requirements": [{"id": "atmosphereDestroyed", "value": true}, {"id": "talked-with-oliver", "value": true}],
+                            "outcome": []
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "oliver-toolbox",
+            "name": "Oliver",
+            "requirements":[{"id": "talked-with-oliver", "value": true}],
+            "notFullfilingRequirements": "",
+            "lines": {
+                "replica": {
+                    "type": "npc",
+                    "choices": [
+                        {
+                            "line": "You see, there's this pet project I have, I call it AtmoSphere - it's almost done, I just need six spare parts and a strong enough battery to power it up. When finished, it could protect the whole city from acid rains.",
+                            "requirements": [{"id": "repaired", "value": true}],
+                            "outcome": []
+                        },
+                        {
+                            "line": "So, you've changed your mind then! Come here, let me take a look at it…",
+                            "requirements": [{"id": "repaired", "value": false}],
+                            "outcome": [{"id": "repaired", "value": true}],
+                            "next": {
+                                "replica": {
+                                    "type": "npc",
+                                    "choices": [
+                                        {
+                                            "line": "You see, there's this pet project I have, I call it AtmoSphere - it's almost done, I just need six spare parts and a strong enough battery to power it up. When finished, it could protect the whole city from acid rains.",
+                                            "requirements": [],
+                                            "outcome": []
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "oliver",
+            "name": "Oliver",
+            "requirements":[{"id": "talked-with-oliver", "value": true}],
+            "notFullfilingRequirements": "",
+            "lines": {
+                "replica": {
+                    "type": "npc",
+                    "choices": [
+                        {
+                            "line": "Abbz has some electricity problems? I'll make sure to stop by and help her. Make sure to visit her again too, she can get a little lonely sometimes.",
+                            "requirements": [{"id": "battery-level", "value": 1}, {"id": "generator-fixed", "value": false}, {"id": "abbz-state", "value": "neutral"}, {"id": "talked-with-oliver-after-abbz", "value": true}],
+                            "outcome": [{"id": "generator-fixed", "value": true}, {"id": "battery-cell", "value": -1}]
+                        },
+                        {
+                            "line": "You don't have any more battery cells",
+                            "requirements": [],
+                            "outcome": []
+
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "destroy-atmosphere",
+            "npc-name": "Oliver",
+            "customDialogue": true,
+            "name": "Are you sure you wish to destroy Oliver's invention?",
+            "requirements": [],
+            "notFullfilingRequirements": "",
+            "lines": {
+                "replica": {
+                    "type": "player",
+                    "choices": [
+                        {
+                            "line": "POSITIVE (-1 Battery cell)",
+                            "requirements": [{"id": "battery-level", "value": 1}],
+                            "outcome": [{"id": "atmosphereDestroyed", "value": true}, {"id": "battery-cell", "value": -1}],
+                            "next": {
+                                "replica": {
+                                    "type": "npc",
+                                    "choices": [
+                                        {
+                                            "line": "Hey, what do you think you're doing?! It took me a lot of time to create that!",
+                                            "requirements": [],
+                                            "outcome": [{"id": "main-scene", "value": true}]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "line": "NEGATIVE",
+                            "requirements": [],
+                            "outcome": []
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "mayor-room-prevent-enter",
+            "name": "B33-P",
+            "requirements":[],
+            "notFullfilingRequirements": "",
+            "lines": {
+                "replica": {
+                    "type": "player",
+                    "choices": [
+                        {
+                            "line": "This room has collapsed.",
+                            "requirements": [{"id": "mayor-status", "value": "dead"}],
+                            "outcome": []
+                        },
+                        {
+                            "line": "I shall not go there. Could be dangerous.",
+                            "requirements": [{"id": "mayor-status", "value": "undiscovered"}],
+                            "outcome": []
+                        }
+                    ]
+                }
+            }
+                            
+        },
+        {
+            "id": "pickup-item",
+            "customDialogue": true,
+            "name": "Are you sure you want to pick up this item?",
+            "requirements": [],
+            "notFullfilingRequirements": "",
+            "lines": {
+                "replica": {
+                    "type": "player",
+                    "choices": [
+                        {
+                            "line": "POSITIVE (-1 Battery cell)",
+                            "requirements": [],
+                            "outcome": [{"id": "pick-up-item", "value": true}]
+                        },
+                        {
+                            "line": "NEGATIVE",
+                            "requirements": [],
+                            "outcome": [{"id": "pick-up-item", "value": false}]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "pickup-item-no-battery",
+            "customDialogue": true,
+            "name": "You don't have enough battery cells to pick up this item.",
+            "requirements": [],
+            "notFullfilingRequirements": "",
+            "lines": {
+                "replica": {
+                    "type": "player",
+                    "choices": [
+                        {
+                            "line": "Okay",
+                            "requirements": [],
+                            "outcome": []
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "cat",
+            "name": "Cat",
+            "requirements":[{"id": "item", "value": "cat-food"}],
+            "notFullfilingRequirements": "You must have a can of cat food in your inventory to feed the cat.",
+            "lines": {
+                "replica": {
+                    "type": "npc",
+                    "choices": [
+                        {
+                            "line": "**Meow** D/eL1C*mEoW**I0|_|5**WOem**",
+                            "requirements": [],
+                            "outcome": [{"id": "item-remove", "value": "cat-food"}, {"id": "feed-cat", "value": true}]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "flower",
+            "name": "Flower",
+            "requirements":[{"id": "battery-level", "value": 1}],
+            "notFullfilingRequirements": "You don't have any battery cells to waste on watering a flower.",
+            "lines": {
+                "replica": {
+                    "type": "npc",
+                    "choices": [
+                        {
+                            "line": "Thank you for wasting a battery cell on me.",
+                            "requirements": [],
+                            "outcome": [{"id": "battery-cell", "value": -1}, {"id": "water-flower", "value": true}]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "water-ending",
+            "name": "Do you want to use all spare parts to build a boat?",
+            "customDialogue": true,
+            "requirements": [{"id": "all-spare-parts", "value": "true"}],
+            "notFullfilingRequirements": "You don't have enough material to build a boat.",
+            "lines": {
+                "replica": {
+                    "type": "player",
+                    "choices": [
+                        {
+                            "line": "POSITIVE",
+                            "requirements": [],
+                            "outcome": [{"id": "ending", "value": 4}]
+                        },
+                        {
+                            "line": "NEGATIVE",
+                            "requirements": [],
+                            "outcome": []
+                        }
+                    ]
+                }       
+            }
+        },
+        {
+            "id": "piano",
+            "name": "",
+            "customDialogue": true,
+            "requirements": [{"id": "all-spare-parts", "value": "true"}],
+            "notFullfilingRequirements": "You probably shouldn't touch this piano, it belongs to the upper echelons of society.",
+            "lines": {
+                "replica": {
+                    "type": "npc",
+                    "choices": [
+                        {
+                            "line": "You tried to play the piano, but you failed miserably.",
+                            "requirements": [],
+                            "outcome": []
+                        }
+                    ]
+                }       
+            } 
+        }
+    ]
+}

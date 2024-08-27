@@ -1,0 +1,70 @@
+{
+    "items": [
+        {
+            "id": "error",
+            "name": "Error",
+            "description": "Unknown item",
+            "asset": "Sprites/error"
+        },
+        {
+            "id": "translator",
+            "name": "Translator",
+            "description": "A device that translates the language of the robots.",
+            "asset": "Sprites/translator"
+        },
+        {
+            "id": "harmonica",
+            "name": "Harmonica",
+            "description": "A harmonica is a majestic instrument that represents musical simplicity",
+            "asset": "Sprites/harmonica"
+        },
+        {
+            "id": "tent",
+            "name": "The QTT 10000 (The Quantum Tardis Tent)",
+            "description": "The Quantum Tardis Tent, some say it is bigger on the inside...",
+            "asset": "Sprites/tentItem"
+        },
+        {
+            "id": "cat-food",
+            "name": "Can of cat food",
+            "description": "An unusual looking can of cat food.",
+            "asset": "Sprites/CatFood"
+        },
+        {
+            "id": "spare-part-1",
+            "name": "Spare part #01",
+            "description": "Spare part #01, acquired from Abbz shop",
+            "asset": "Sprites/quantumGear"
+        },
+        {
+            "id": "spare-part-2",
+            "name": "Spare part #02",
+            "description": "Spare part #02, received from Abbz for repairing her generator",
+            "asset": "Sprites/Bearing"
+        },
+        {
+            "id": "spare-part-3",
+            "name": "Spare part #03",
+            "description": "Spare part #03, acquired from Hamper's broken house",
+            "asset": "Sprites/Rotor"
+        },
+        {
+            "id": "spare-part-4",
+            "name": "Spare part #04",
+            "description": "Spare part #04, acquired from Tinky for helping him with his music addiction",
+            "asset": "Sprites/Stator"
+        },
+        {
+            "id": "spare-part-5",
+            "name": "Spare part #05",
+            "description": "Spare part #05, an old translator acquired from L33-T for helping him understand human language",
+            "asset": "Sprites/OldTranslator"
+        },
+        {
+            "id": "spare-part-6",
+            "name": "Spare part #06",
+            "description": "Spare part #06, received from Mayor Michal as a reward for saving him.",
+            "asset": "Sprites/randomPart"
+        }
+    ]
+}
