@@ -35,9 +35,6 @@ Visit our official website: [awoken.sk](https://awoken.sk)
 ### Browser Version
 Play the latest version directly in your browser at [awoken.sk](https://awoken.sk)
 
-## Development
-(Add information about the development environment, required dependencies, and how to set up the project for further development)
-
 ## Credits
 Developed by Team "Chorá Puma":
 - Teodor Barča - Python Programmer
