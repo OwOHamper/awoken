@@ -3,7 +3,7 @@
 ## About
 This repository contains the source code for Awoken, a point-and-click adventure game created as a submission for Špongia 2023 by Team "Chorá Puma", a group of six high school students from Gymnázium Alejová 1, Košice.
 
-Visit our official website: [awoken.sk](https://awoken.hamper.dev)
+Visit our official website: [awoken.hamper.dev](https://awoken.hamper.dev)
 
 ## Gameplay
 - Navigate a robot on a map by right-clicking on the path.
@@ -42,7 +42,7 @@ Here are some screenshots from the game:
 3. Run `Awoken.exe`
 
 ### Browser Version
-Play the latest version directly in your browser at [awoken.sk](https://awoken.hamper.dev)
+Play the latest version directly in your browser at [awoken.hamper.dev](https://awoken.hamper.dev)
 
 ## Credits
 Developed by Team "Chorá Puma":
